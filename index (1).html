@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Quang Ân - Bác Sĩ Thú Y</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        .gallery-image {
+            transition: transform 0.5s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+        .modal-enter {
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-image {
+            animation: zoomIn 0.3s ease;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen py-8 px-4">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">Giới Thiệu Bản Thân</h1>
+            <p class="text-gray-600 text-lg">Chuyên trang cá nhân của Bác Sĩ Thú Y</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex flex-col md:flex-row gap-8">
+            <!-- Left Column: Profile Card -->
+            <div class="md:w-2/5">
+                <div class="bg-white rounded-2xl card-shadow overflow-hidden hover-lift">
+                    <div class="p-8">
+                        <!-- Avatar -->
+                        <div class="relative mx-auto w-48 h-48 mb-6">
+                            <img 
+                                src="https://i.postimg.cc/s2027wJJ/anh.jpg" 
+                                alt="Huỳnh Quang Ân" 
+                                class="w-full h-full object-cover rounded-full border-4 border-blue-100"
+                                id="profile-image"
+                                onerror="this.src='https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'"
+                            >
+                            <div class="absolute -bottom-2 -right-2 bg-blue-500 text-white p-3 rounded-full">
+                                <i class="fas fa-stethoscope text-xl"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Personal Info -->
+                        <div class="text-center">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-1">Huỳnh Quang Ân</h2>
+                            <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full mb-4">
+                                <i class="fas fa-user-md"></i>
+                                <span class="font-semibold">Bác Sĩ Thú Y</span>
+                            </div>
+                            
+                            <p class="text-gray-600 mb-6">
+                                Tôi là bác sĩ thú y với niềm đam mê chăm sóc và bảo vệ sức khỏe cho động vật. Tôi luôn nỗ lực mang lại sự thoải mái và hạnh phúc cho những người bạn bốn chân.
+                            </p>
+                            
+                            <!-- Contact Info -->
+                            <div class="space-y-3 text-left">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                                        <i class="fas fa-heart text-green-600"></i>
+                                    </div>
+                                    <span class="text-gray-700">Đam mê với động vật</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                                        <i class="fas fa-graduation-cap text-purple-600"></i>
+                                    </div>
+                                    <span class="text-gray-700">Tốt nghiệp ĐH Cần Thơ khoá 44</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center">
+                                        <i class="fas fa-award text-yellow-600"></i>
+                                    </div>
+                                    <span class="text-gray-700">5 năm kinh nghiệm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column: Details -->
+            <div class="md:w-3/5 space-y-8">
+                <!-- About Me -->
+                <div class="bg-white rounded-2xl card-shadow p-8 hover-lift">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        Về Tôi
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Tôi là Huỳnh Quang Ân, một bác sĩ thú y với hơn 5 năm kinh nghiệm trong lĩnh vực chăm sóc sức khỏe động vật. Tôi đã làm việc tại nhiều bệnh viện thú y và hiện đang công tác tại Phòng khám Thú y Tâm Đức.
+                    </p>
+                    <p class="text-gray-700">
+                        Sứ mệnh của tôi là mang lại sự chăm sóc y tế tốt nhất cho thú cưng, giúp chúng có một cuộc sống khỏe mạnh và hạnh phúc bên cạnh chủ nhân. Tôi tin rằng mỗi con vật đều xứng đáng được yêu thương và chăm sóc chu đáo.
+                    </p>
+                </div>
+                
+                <!-- Hobbies -->
+                <div class="bg-white rounded-2xl card-shadow p-8 hover-lift">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                            <i class="fas fa-heart text-green-600"></i>
+                        </div>
+                        Sở Thích
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center p-6 rounded-xl bg-blue-50">
+                            <div class="text-4xl text-blue-500 mb-4">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Nghe Nhạc</h4>
+                            <p class="text-gray-600 text-sm">Thư giãn với các thể loại nhạc nhẹ, acoustic và cổ điển.</p>
+                        </div>
+                        <div class="text-center p-6 rounded-xl bg-green-50">
+                            <div class="text-4xl text-green-500 mb-4">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Xem Phim</h4>
+                            <p class="text-gray-600 text-sm">Yêu thích phim tài liệu về động vật và phim khoa học viễn tưởng.</p>
+                        </div>
+                        <div class="text-center p-6 rounded-xl bg-yellow-50">
+                            <div class="text-4xl text-yellow-500 mb-4">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Đi Du Lịch</h4>
+                            <p class="text-gray-600 text-sm">Khám phá thiên nhiên, tìm hiểu về hệ động vật tại các vùng miền.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quote -->
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl card-shadow p-8 text-white">
+                    <div class="text-center">
+                        <i class="fas fa-quote-left text-3xl opacity-50 mb-4"></i>
+                        <p class="text-xl italic mb-4">
+                            "Động vật không phải là mọi thứ trong cuộc sống, nhưng chúng khiến mọi thứ trong cuộc sống trở nên tốt đẹp hơn."
+                        </p>
+                        <p class="font-semibold">— Huỳnh Quang Ân</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Travel Gallery -->
+        <section class="mt-12">
+            <div class="bg-white rounded-2xl card-shadow p-8 hover-lift">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                        <i class="fas fa-camera text-indigo-600"></i>
+                    </div>
+                    Hình Ảnh Du Lịch
+                </h3>
+                <p class="text-gray-700 mb-8">
+                    Những khoảnh khắc đáng nhớ trong các chuyến du lịch khám phá thiên nhiên và tìm hiểu về hệ động vật tại các vùng miền.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="travel-gallery">
+                    <!-- Images will be inserted here by JavaScript -->
+                </div>
+                <div class="text-center mt-8">
+                    <button id="show-more-btn" class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-3 px-6 rounded-full transition duration-300">
+                        <i class="fas fa-images mr-2"></i>Xem Thêm Hình Ảnh
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="mt-12 pt-8 border-t border-gray-200 text-center text-gray-600">
+            <p>© 2023 Huỳnh Quang Ân. Tất cả các quyền được bảo lưu.</p>
+            <div class="flex justify-center gap-4 mt-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-200">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-200">
+                    <i class="fab fa-zalo"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-200">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 hover:bg-purple-200">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Simple animation for profile image
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileImage = document.getElementById('profile-image');
+            if (profileImage) {
+                profileImage.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                profileImage.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+            
+            // Add click effect to hobby cards
+            const hobbyCards = document.querySelectorAll('.bg-blue-50, .bg-green-50, .bg-yellow-50');
+            hobbyCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('ring-2');
+                    this.classList.toggle('ring-blue-300');
+                });
+            });
+
+            // Travel Gallery
+            const travelImages = [
+                "https://i.postimg.cc/4dvZxPnw/z7337933328240_9f7ca968f13d81f837953f89295e73c8.jpg",
+                "https://i.postimg.cc/6qYXdQrn/z7337933330826_9a6d17140add4d8482b811285ab13aa7.jpg",
+                "https://i.postimg.cc/d34Y802T/z7337933333273_69f91aeb688f88323c2092ceb21cc9f5.jpg",
+                "https://i.postimg.cc/KjJ2nYPD/z7337933338648_733ca8a6bf29ab71372bf31e442e516b.jpg",
+                "https://i.postimg.cc/6qYXdQrh/z7337933345317_31c4b74cd5cee22e08c24bb7085b362e.jpg",
+                "https://i.postimg.cc/90JhGfdk/z7337933351141_ea284ad32e95dc64df648015e55f62dc.jpg"
+            ];
+
+            const galleryContainer = document.getElementById('travel-gallery');
+            const showMoreBtn = document.getElementById('show-more-btn');
+            let visibleCount = 3; // Initially show 3 images
+
+            function renderGallery() {
+                galleryContainer.innerHTML = '';
+                const imagesToShow = travelImages.slice(0, visibleCount);
+                
+                imagesToShow.forEach((src, index) => {
+                    const imgDiv = document.createElement('div');
+                    imgDiv.className = 'rounded-xl overflow-hidden hover-lift cursor-pointer relative group';
+                    imgDiv.innerHTML = `
+                        <div class="relative h-64 overflow-hidden">
+                            <img 
+                                src="${src}" 
+                                alt="Du lịch ${index + 1}" 
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <i class="fas fa-mountain mr-2"></i>
+                                <span class="font-medium">Điểm đến ${index + 1}</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Add click to view larger
+                    imgDiv.addEventListener('click', function() {
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 modal-enter';
+                        modal.innerHTML = `
+                            <div class="relative max-w-4xl max-h-[90vh]">
+                                <img src="${src}" alt="Du lịch ${index + 1}" class="max-w-full max-h-[80vh] rounded-lg modal-image">
+                                <button class="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                        
+                        modal.querySelector('button').addEventListener('click', () => {
+                            modal.remove();
+                        });
+                        
+                        modal.addEventListener('click', (e) => {
+                            if (e.target === modal) {
+                                modal.remove();
+                            }
+                        });
+                    });
+                    
+                    galleryContainer.appendChild(imgDiv);
+                });
+                
+                // Update button text
+                if (visibleCount >= travelImages.length) {
+                    showMoreBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Đã Hiển Thị Tất Cả';
+                    showMoreBtn.disabled = true;
+                    showMoreBtn.classList.remove('bg-indigo-500', 'hover:bg-indigo-600');
+                    showMoreBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+                } else {
+                    showMoreBtn.innerHTML = '<i class="fas fa-images mr-2"></i>Xem Thêm Hình Ảnh';
+                }
+            }
+
+            // Show more images
+            showMoreBtn.addEventListener('click', () => {
+                visibleCount = Math.min(visibleCount + 3, travelImages.length);
+                renderGallery();
+            });
+
+            // Initial render
+            renderGallery();
+            
+            // Current year for footer
+            const yearSpan = document.querySelector('footer p');
+            if (yearSpan) {
+                const currentYear = new Date().getFullYear();
+                yearSpan.textContent = yearSpan.textContent.replace('2023', currentYear);
+            }
+        });
+    </script>
+</body>
+</html>
